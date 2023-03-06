@@ -1,12 +1,15 @@
 package com.example.a4month_lesson5hw5
 
+import android.content.Context
 import com.example.a4month_lesson5hw5.remote.LoveApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -19,8 +22,14 @@ class AppModule {
     }
 
     @Provides
-    fun provideUtils(): Utils{
+    fun provideUtils(): Utils {
         return Utils()
+    }
+
+    @Singleton
+    @Provides
+    fun providePref(@ApplicationContext context: Context): Pref {
+        return Pref(context)
     }
 
 }

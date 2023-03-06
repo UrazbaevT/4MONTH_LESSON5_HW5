@@ -9,9 +9,11 @@ import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
 
-class Repository @Inject  constructor(val api: LoveApi){
+class Repository @Inject constructor(val api: LoveApi){
+
     fun getLove(firstName: String, secondName: String): MutableLiveData<LoveModel>{
         val liveLoveData = MutableLiveData<LoveModel>()
+
         api.calculatePercentage(firstName, secondName).enqueue(object :Callback<LoveModel>{
             override fun onResponse(call: Call<LoveModel>, response: Response<LoveModel>) {
                 if (response.isSuccessful){

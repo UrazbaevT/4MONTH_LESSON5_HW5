@@ -10,4 +10,10 @@
         android:name="com.example.a4month_lesson5hw5.FirstFragment"
         android:label="fragment_first"
         tools:layout="@layout/fragment_first" />
+
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="com.example.a4month_lesson5hw5.onBoarding.OnBoardingFragment"
+        android:label="fragment_on_boarding"
+        tools:layout="@layout/fragment_on_boarding" />
 </navigation>
